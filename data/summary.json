@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "owner": "zou172866",
+  "archive_repo": "zou172866/repo-traffic-archive",
+  "generated_at_utc": "2026-11-25T04:20:17.277Z",
+  "tracking_since": "2026-11-10",
+  "active_public_repos": 8,
+  "historical_inactive_repos": 0,
+  "total_tracked_repos": 8,
+  "total_cumulative_clones": 2803,
+  "total_sum_of_daily_uniques": 1897,
+  "methodology": {
+    "source": "GitHub REST API GET /repos/{owner}/{repo}/traffic/clones?per=day",
+    "deduplication": "Keyed strictly by UTC date (YYYY-MM-DD); values within the 14-day rolling window are upserted and dates outside the window are retained permanently.",
+    "cumulative_clones_definition": "Exact sum of daily clone counts across all tracked UTC days. Includes git clones from developers, CI/CD runners, mirrors, and automated bots.",
+    "sum_of_daily_uniques_definition": "Sum of GitHub daily unique cloners across tracked UTC days. Trend reference only; NOT deduplicated across different days.",
+    "scope": "Public non-fork repositories by default (archive repository itself excluded by default). Archived public repositories remain tracked with archived=true; deleted, privatized, or no-longer-returned repositories remain preserved with active=false.",
+    "include_forks": false,
+    "excluded_repos": [
+      "zou172866/repo-traffic-archive"
+    ]
+  },
+  "repos": [
+    {
+      "name": "Antigravity-agy-dart",
+      "repo": "zou172866/Antigravity-agy-dart",
+      "html_url": "https://github.com/zou172866/Antigravity-agy-dart",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-10",
+      "days_recorded": 14,
+      "cumulative_clones": 1678,
+      "sum_of_daily_uniques": 1131,
+      "last_updated_utc": "2026-11-25T04:20:17.277Z"
+    },
+    {
+      "name": "Antigravity-agy-cmd",
+      "repo": "zou172866/Antigravity-agy-cmd",
+      "html_url": "https://github.com/zou172866/Antigravity-agy-cmd",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-10",
+      "days_recorded": 14,
+      "cumulative_clones": 718,
+      "sum_of_daily_uniques": 547,
+      "last_updated_utc": "2026-11-25T04:20:17.277Z"
+    },
+    {
+      "name": "xiaozhi-windows-pc-mcp",
+      "repo": "zou172866/xiaozhi-windows-pc-mcp",
+      "html_url": "https://github.com/zou172866/xiaozhi-windows-pc-mcp",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-10",
+      "days_recorded": 14,
+      "cumulative_clones": 257,
+      "sum_of_daily_uniques": 123,
+      "last_updated_utc": "2026-11-25T04:20:17.277Z"
+    },
+    {
+      "name": "svg-voiced-video-studio",
+      "repo": "zou172866/svg-voiced-video-studio",
+      "html_url": "https://github.com/zou172866/svg-voiced-video-studio",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-10",
+      "days_recorded": 14,
+      "cumulative_clones": 87,
+      "sum_of_daily_uniques": 56,
+      "last_updated_utc": "2026-11-25T04:20:17.277Z"
+    },
+    {
+      "name": "agy-xiaozhi-notifier",
+      "repo": "zou172866/agy-xiaozhi-notifier",
+      "html_url": "https://github.com/zou172866/agy-xiaozhi-notifier",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-10",
+      "days_recorded": 14,
+      "cumulative_clones": 56,
+      "sum_of_daily_uniques": 33,
+      "last_updated_utc": "2026-11-25T04:20:17.277Z"
+    },
+    {
+      "name": "-edge-subtitle-plugin-Edge-",
+      "repo": "zou172866/-edge-subtitle-plugin-Edge-",
+      "html_url": "https://github.com/zou172866/-edge-subtitle-plugin-Edge-",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-10",
+      "days_recorded": 14,
+      "cumulative_clones": 7,
+      "sum_of_daily_uniques": 7,
+      "last_updated_utc": "2026-11-25T04:20:17.277Z"
+    },
+    {
+      "name": "agy-ignore",
+      "repo": "zou172866/agy-ignore",
+      "html_url": "https://github.com/zou172866/agy-ignore",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-12",
+      "days_recorded": 14,
+      "cumulative_clones": 0,
+      "sum_of_daily_uniques": 0,
+      "last_updated_utc": "2026-11-25T04:20:17.277Z"
+    },
+    {
+      "name": "Antigravity-agy-human",
+      "repo": "zou172866/Antigravity-agy-human",
+      "html_url": "https://github.com/zou172866/Antigravity-agy-human",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-12",
+      "days_recorded": 14,
+      "cumulative_clones": 0,
+      "sum_of_daily_uniques": 0,
+      "last_updated_utc": "2026-11-25T04:20:17.277Z"
+    }
+  ]
+}
