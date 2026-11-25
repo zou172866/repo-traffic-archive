@@ -1,0 +1,217 @@
+name: Collect Public Repo Clones
+
+on:
+  schedule:
+    - cron: '15 2 * * *'
+  workflow_dispatch:
+    inputs:
+      heartbeat_commit:
+        description: 'Force a daily heartbeat commit even when clone counts did not change'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: collect-clones
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout archive repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Resolve archive repository metadata
+        id: repo-meta
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_REPO_NAME: ${{ github.event.repository.name }}
+          EVENT_REPO_PRIVATE: ${{ github.event.repository.private }}
+          EVENT_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          node --input-type=module <<'EOF'
+          import fs from 'node:fs';
+
+          const fullRepo = String(process.env.GITHUB_REPOSITORY || '').trim();
+          const parts = fullRepo.split('/');
+          const repoName = String(process.env.EVENT_REPO_NAME || '').trim() || (parts.length === 2 ? parts[1] : '');
+          if (!repoName) {
+            throw new Error(`Unable to determine archive repository name from GITHUB_REPOSITORY=${JSON.stringify(fullRepo)}`);
+          }
+
+          let isPrivate = String(process.env.EVENT_REPO_PRIVATE || '').trim().toLowerCase();
+          let defaultBranch = String(process.env.EVENT_DEFAULT_BRANCH || '').trim();
+
+          if ((isPrivate !== 'true' && isPrivate !== 'false') || !defaultBranch) {
+            if (parts.length !== 2 || !parts[0] || !parts[1]) {
+              throw new Error(`Invalid GITHUB_REPOSITORY: ${JSON.stringify(fullRepo)}`);
+            }
+            const apiBase = String(process.env.GITHUB_API_URL || 'https://api.github.com').replace(/\/+$/, '');
+            const url = `${apiBase}/repos/${encodeURIComponent(parts[0])}/${encodeURIComponent(parts[1])}`;
+            const headers = {
+              Accept: 'application/vnd.github+json',
+              'X-GitHub-Api-Version': '2022-11-28',
+              'User-Agent': 'repo-traffic-archive/1.0',
+            };
+            if (process.env.GH_TOKEN) {
+              headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
+            }
+
+            let data = null;
+            let lastErr = null;
+            for (let attempt = 0; attempt < 3; attempt += 1) {
+              try {
+                const res = await fetch(url, { headers, signal: AbortSignal.timeout(15_000) });
+                if (res.ok) {
+                  data = await res.json();
+                  break;
+                }
+                const body = await res.text();
+                const retryable =
+                  [429, 500, 502, 503, 504].includes(res.status) ||
+                  (res.status === 403 && (Boolean(res.headers.get('retry-after')) || res.headers.get('x-ratelimit-remaining') === '0'));
+                if (!retryable || attempt === 2) {
+                  throw new Error(`HTTP ${res.status} querying ${url}: ${body.slice(0, 300)}`);
+                }
+              } catch (err) {
+                lastErr = err;
+                if ((err instanceof Error && err.message.startsWith('HTTP ')) || attempt === 2) {
+                  throw err;
+                }
+              }
+              await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+            }
+            if (!data) throw lastErr || new Error('Failed to load archive repository metadata.');
+            if (isPrivate !== 'true' && isPrivate !== 'false') {
+              isPrivate = String(Boolean(data.private));
+            }
+            if (!defaultBranch && typeof data.default_branch === 'string') {
+              defaultBranch = data.default_branch.trim();
+            }
+          }
+
+          const isPublic = isPrivate === 'false';
+          const resolvedBranch = (defaultBranch || process.env.GITHUB_REF_NAME || 'main').replace(/\r?\n/g, '');
+          const safeRepoName = repoName.replace(/\r?\n/g, '');
+          const output = [
+            `repo_name=${safeRepoName}`,
+            `is_public=${isPublic ? 'true' : 'false'}`,
+            `default_branch=${resolvedBranch}`,
+          ].join('\n') + '\n';
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, output, 'utf8');
+          EOF
+
+      - name: Mint read-only App token (all repos, administration:read + metadata:read)
+        id: read-token
+        if: ${{ vars.APP_CLIENT_ID != '' }}
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ vars.GITHUB_OWNER || github.repository_owner }}
+          permission-administration: read
+          permission-metadata: read
+
+      - name: Mint write App token (archive repo only, contents:write)
+        id: write-token
+        if: ${{ vars.APP_CLIENT_ID != '' }}
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.APP_CLIENT_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ steps.repo-meta.outputs.repo_name }}
+          permission-contents: write
+
+      - name: Check PAT fallback configuration
+        if: ${{ vars.APP_CLIENT_ID == '' }}
+        shell: bash
+        env:
+          HAS_TRAFFIC_PAT: ${{ secrets.TRAFFIC_PAT != '' }}
+        run: |
+          echo "::warning::APP_CLIENT_ID repository variable is not set; falling back to TRAFFIC_PAT mode. For least-privilege dual tokens and Verified commits, configure a GitHub App (see README.md)."
+          if [[ "$HAS_TRAFFIC_PAT" != "true" ]]; then
+            echo "::error::Neither APP_CLIENT_ID/APP_PRIVATE_KEY nor TRAFFIC_PAT secret is configured. Please follow the setup steps in README.md."
+            exit 1
+          fi
+
+      - name: Collect public repository clone traffic
+        env:
+          GITHUB_TOKEN: ${{ steps.read-token.outputs.token || secrets.TRAFFIC_PAT }}
+          AUTH_MODE: ${{ vars.APP_CLIENT_ID != '' && 'app' || 'pat' }}
+          GITHUB_OWNER: ${{ vars.GITHUB_OWNER || github.repository_owner }}
+          ARCHIVE_REPO: ${{ github.repository }}
+          INCLUDE_FORKS: ${{ vars.INCLUDE_FORKS || 'false' }}
+          INCLUDE_ARCHIVE_REPO: ${{ vars.INCLUDE_ARCHIVE_REPO || 'false' }}
+          EXCLUDE_REPOS: ${{ vars.EXCLUDE_REPOS || '' }}
+          BADGE_NUMBER_STYLE: ${{ vars.BADGE_NUMBER_STYLE || 'exact' }}
+          BADGE_COLOR: ${{ vars.BADGE_COLOR || '0969da' }}
+          HEARTBEAT_COMMIT: ${{ (github.event_name == 'workflow_dispatch' && inputs.heartbeat_commit == true) && 'true' || vars.HEARTBEAT_COMMIT || 'false' }}
+          DEFAULT_BRANCH: ${{ steps.repo-meta.outputs.default_branch }}
+        run: node scripts/collect.mjs
+
+      - name: Commit archive changes via GraphQL API
+        id: commit
+        env:
+          GITHUB_TOKEN: ${{ steps.write-token.outputs.token || secrets.TRAFFIC_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TARGET_BRANCH: ${{ github.ref_name || steps.repo-meta.outputs.default_branch || 'main' }}
+        run: node scripts/commit-verified.mjs
+
+      - name: Resolve existing attestation subjects
+        id: attest-subjects
+        if: ${{ steps.commit.outputs.changed == 'true' && steps.repo-meta.outputs.is_public == 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          patterns=()
+          if [[ -f data/summary.json ]]; then
+            patterns+=("data/summary.json")
+          fi
+          daily_files=(data/daily/*.json)
+          if (( ${#daily_files[@]} > 0 )); then
+            patterns+=("data/daily/*.json")
+          fi
+          daily_dotfiles=(data/daily/.*.json)
+          if (( ${#daily_dotfiles[@]} > 0 )); then
+            patterns+=("data/daily/.*.json")
+          fi
+          badge_files=(badges/*.json)
+          if (( ${#badge_files[@]} > 0 )); then
+            patterns+=("badges/*.json")
+          fi
+          badge_dotfiles=(badges/.*.json)
+          if (( ${#badge_dotfiles[@]} > 0 )); then
+            patterns+=("badges/.*.json")
+          fi
+          if (( ${#patterns[@]} > 0 )); then
+            echo "has_subjects=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "paths<<EOF_ATTEST_SUBJECTS"
+              printf '%s\n' "${patterns[@]}"
+              echo "EOF_ATTEST_SUBJECTS"
+            } >> "$GITHUB_OUTPUT"
+          else
+            echo "has_subjects=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Attest archive artifacts with Sigstore provenance
+        if: ${{ steps.commit.outputs.changed == 'true' && steps.repo-meta.outputs.is_public == 'true' && steps.attest-subjects.outputs.has_subjects == 'true' }}
+        uses: actions/attest@v4
+        with:
+          subject-path: ${{ steps.attest-subjects.outputs.paths }}

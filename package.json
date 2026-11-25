@@ -1,0 +1,14 @@
+{
+  "name": "repo-traffic-archive",
+  "version": "1.0.0",
+  "description": "Zero-dependency authoritative GitHub public repository cumulative clone archive, Shields.io badges, verified commits, and Sigstore attestations.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "collect": "node scripts/collect.mjs",
+    "test": "node --test test/*.test.mjs"
+  }
+}
