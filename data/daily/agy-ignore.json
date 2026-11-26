@@ -7,9 +7,9 @@
   "active": true,
   "archived": false,
   "tracking_since": "2026-11-12",
-  "cumulative_clones": 0,
-  "sum_of_daily_uniques": 0,
-  "last_updated_utc": "2026-11-25T04:20:17.277Z",
+  "cumulative_clones": 54,
+  "sum_of_daily_uniques": 30,
+  "last_updated_utc": "2026-11-26T07:06:00.954Z",
   "days": {
     "2026-11-12": {
       "count": 0,
@@ -60,12 +60,12 @@
       "uniques": 0
     },
     "2026-11-24": {
-      "count": 0,
-      "uniques": 0
+      "count": 13,
+      "uniques": 9
     },
     "2026-11-25": {
-      "count": 0,
-      "uniques": 0
+      "count": 41,
+      "uniques": 21
     }
   }
 }
