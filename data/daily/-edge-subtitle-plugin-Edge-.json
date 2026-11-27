@@ -9,7 +9,7 @@
   "tracking_since": "2026-11-10",
   "cumulative_clones": 18,
   "sum_of_daily_uniques": 15,
-  "last_updated_utc": "2026-11-26T07:06:00.954Z",
+  "last_updated_utc": "2026-11-27T10:53:53.942Z",
   "days": {
     "2026-11-10": {
       "count": 2,
@@ -74,6 +74,10 @@
     "2026-11-25": {
       "count": 11,
       "uniques": 8
+    },
+    "2026-11-26": {
+      "count": 0,
+      "uniques": 0
     }
   }
 }

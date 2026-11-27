@@ -7,9 +7,9 @@
   "active": true,
   "archived": false,
   "tracking_since": "2026-11-10",
-  "cumulative_clones": 985,
-  "sum_of_daily_uniques": 727,
-  "last_updated_utc": "2026-11-26T07:06:00.954Z",
+  "cumulative_clones": 1486,
+  "sum_of_daily_uniques": 1053,
+  "last_updated_utc": "2026-11-27T10:53:53.942Z",
   "days": {
     "2026-11-10": {
       "count": 0,
@@ -70,6 +70,14 @@
     "2026-11-24": {
       "count": 267,
       "uniques": 180
+    },
+    "2026-11-25": {
+      "count": 252,
+      "uniques": 152
+    },
+    "2026-11-26": {
+      "count": 249,
+      "uniques": 174
     }
   }
 }

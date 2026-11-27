@@ -2,13 +2,13 @@
   "schema_version": 1,
   "owner": "zou172866",
   "archive_repo": "zou172866/repo-traffic-archive",
-  "generated_at_utc": "2026-11-26T07:06:00.954Z",
+  "generated_at_utc": "2026-11-27T10:53:53.942Z",
   "tracking_since": "2026-11-10",
   "active_public_repos": 8,
   "historical_inactive_repos": 0,
   "total_tracked_repos": 8,
-  "total_cumulative_clones": 3966,
-  "total_sum_of_daily_uniques": 2628,
+  "total_cumulative_clones": 5757,
+  "total_sum_of_daily_uniques": 3810,
   "methodology": {
     "source": "GitHub REST API GET /repos/{owner}/{repo}/traffic/clones?per=day",
     "deduplication": "Keyed strictly by UTC date (YYYY-MM-DD); values within the 14-day rolling window are upserted and dates outside the window are retained permanently.",
@@ -28,10 +28,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 15,
-      "cumulative_clones": 2337,
-      "sum_of_daily_uniques": 1571,
-      "last_updated_utc": "2026-11-26T07:06:00.954Z"
+      "days_recorded": 17,
+      "cumulative_clones": 3433,
+      "sum_of_daily_uniques": 2308,
+      "last_updated_utc": "2026-11-27T10:53:53.942Z"
     },
     {
       "name": "Antigravity-agy-cmd",
@@ -40,10 +40,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 15,
-      "cumulative_clones": 985,
-      "sum_of_daily_uniques": 727,
-      "last_updated_utc": "2026-11-26T07:06:00.954Z"
+      "days_recorded": 17,
+      "cumulative_clones": 1486,
+      "sum_of_daily_uniques": 1053,
+      "last_updated_utc": "2026-11-27T10:53:53.942Z"
     },
     {
       "name": "xiaozhi-windows-pc-mcp",
@@ -52,46 +52,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 16,
-      "cumulative_clones": 366,
-      "sum_of_daily_uniques": 163,
-      "last_updated_utc": "2026-11-26T07:06:00.954Z"
-    },
-    {
-      "name": "svg-voiced-video-studio",
-      "repo": "zou172866/svg-voiced-video-studio",
-      "html_url": "https://github.com/zou172866/svg-voiced-video-studio",
-      "active": true,
-      "archived": false,
-      "tracking_since": "2026-11-10",
-      "days_recorded": 15,
-      "cumulative_clones": 88,
-      "sum_of_daily_uniques": 57,
-      "last_updated_utc": "2026-11-26T07:06:00.954Z"
-    },
-    {
-      "name": "Antigravity-agy-human",
-      "repo": "zou172866/Antigravity-agy-human",
-      "html_url": "https://github.com/zou172866/Antigravity-agy-human",
-      "active": true,
-      "archived": false,
-      "tracking_since": "2026-11-11",
-      "days_recorded": 15,
-      "cumulative_clones": 61,
-      "sum_of_daily_uniques": 31,
-      "last_updated_utc": "2026-11-26T07:06:00.954Z"
-    },
-    {
-      "name": "agy-xiaozhi-notifier",
-      "repo": "zou172866/agy-xiaozhi-notifier",
-      "html_url": "https://github.com/zou172866/agy-xiaozhi-notifier",
-      "active": true,
-      "archived": false,
-      "tracking_since": "2026-11-10",
-      "days_recorded": 15,
-      "cumulative_clones": 57,
-      "sum_of_daily_uniques": 34,
-      "last_updated_utc": "2026-11-26T07:06:00.954Z"
+      "days_recorded": 17,
+      "cumulative_clones": 380,
+      "sum_of_daily_uniques": 173,
+      "last_updated_utc": "2026-11-27T10:53:53.942Z"
     },
     {
       "name": "agy-ignore",
@@ -100,10 +64,46 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-12",
-      "days_recorded": 14,
-      "cumulative_clones": 54,
-      "sum_of_daily_uniques": 30,
-      "last_updated_utc": "2026-11-26T07:06:00.954Z"
+      "days_recorded": 15,
+      "cumulative_clones": 129,
+      "sum_of_daily_uniques": 77,
+      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+    },
+    {
+      "name": "Antigravity-agy-human",
+      "repo": "zou172866/Antigravity-agy-human",
+      "html_url": "https://github.com/zou172866/Antigravity-agy-human",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-11",
+      "days_recorded": 16,
+      "cumulative_clones": 126,
+      "sum_of_daily_uniques": 68,
+      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+    },
+    {
+      "name": "svg-voiced-video-studio",
+      "repo": "zou172866/svg-voiced-video-studio",
+      "html_url": "https://github.com/zou172866/svg-voiced-video-studio",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-10",
+      "days_recorded": 17,
+      "cumulative_clones": 98,
+      "sum_of_daily_uniques": 63,
+      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+    },
+    {
+      "name": "agy-xiaozhi-notifier",
+      "repo": "zou172866/agy-xiaozhi-notifier",
+      "html_url": "https://github.com/zou172866/agy-xiaozhi-notifier",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-10",
+      "days_recorded": 17,
+      "cumulative_clones": 87,
+      "sum_of_daily_uniques": 53,
+      "last_updated_utc": "2026-11-27T10:53:53.942Z"
     },
     {
       "name": "-edge-subtitle-plugin-Edge-",
@@ -112,10 +112,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 16,
+      "days_recorded": 17,
       "cumulative_clones": 18,
       "sum_of_daily_uniques": 15,
-      "last_updated_utc": "2026-11-26T07:06:00.954Z"
+      "last_updated_utc": "2026-11-27T10:53:53.942Z"
     }
   ]
 }
