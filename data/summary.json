@@ -2,13 +2,13 @@
   "schema_version": 1,
   "owner": "zou172866",
   "archive_repo": "zou172866/repo-traffic-archive",
-  "generated_at_utc": "2026-11-27T10:53:53.942Z",
+  "generated_at_utc": "2026-11-28T10:29:34.014Z",
   "tracking_since": "2026-11-10",
-  "active_public_repos": 8,
+  "active_public_repos": 9,
   "historical_inactive_repos": 0,
-  "total_tracked_repos": 8,
-  "total_cumulative_clones": 5757,
-  "total_sum_of_daily_uniques": 3810,
+  "total_tracked_repos": 9,
+  "total_cumulative_clones": 6539,
+  "total_sum_of_daily_uniques": 4320,
   "methodology": {
     "source": "GitHub REST API GET /repos/{owner}/{repo}/traffic/clones?per=day",
     "deduplication": "Keyed strictly by UTC date (YYYY-MM-DD); values within the 14-day rolling window are upserted and dates outside the window are retained permanently.",
@@ -28,10 +28,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 17,
-      "cumulative_clones": 3433,
-      "sum_of_daily_uniques": 2308,
-      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+      "days_recorded": 18,
+      "cumulative_clones": 3934,
+      "sum_of_daily_uniques": 2669,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
     },
     {
       "name": "Antigravity-agy-cmd",
@@ -40,10 +40,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 17,
-      "cumulative_clones": 1486,
-      "sum_of_daily_uniques": 1053,
-      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+      "days_recorded": 18,
+      "cumulative_clones": 1682,
+      "sum_of_daily_uniques": 1156,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
     },
     {
       "name": "xiaozhi-windows-pc-mcp",
@@ -52,10 +52,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 17,
-      "cumulative_clones": 380,
-      "sum_of_daily_uniques": 173,
-      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+      "days_recorded": 18,
+      "cumulative_clones": 410,
+      "sum_of_daily_uniques": 188,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
     },
     {
       "name": "agy-ignore",
@@ -64,10 +64,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-12",
-      "days_recorded": 15,
-      "cumulative_clones": 129,
-      "sum_of_daily_uniques": 77,
-      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+      "days_recorded": 16,
+      "cumulative_clones": 170,
+      "sum_of_daily_uniques": 100,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
     },
     {
       "name": "Antigravity-agy-human",
@@ -76,10 +76,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-11",
-      "days_recorded": 16,
-      "cumulative_clones": 126,
-      "sum_of_daily_uniques": 68,
-      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+      "days_recorded": 17,
+      "cumulative_clones": 131,
+      "sum_of_daily_uniques": 71,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
     },
     {
       "name": "svg-voiced-video-studio",
@@ -88,10 +88,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 17,
-      "cumulative_clones": 98,
-      "sum_of_daily_uniques": 63,
-      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+      "days_recorded": 18,
+      "cumulative_clones": 102,
+      "sum_of_daily_uniques": 65,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
     },
     {
       "name": "agy-xiaozhi-notifier",
@@ -100,10 +100,10 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 17,
-      "cumulative_clones": 87,
-      "sum_of_daily_uniques": 53,
-      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+      "days_recorded": 18,
+      "cumulative_clones": 90,
+      "sum_of_daily_uniques": 55,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
     },
     {
       "name": "-edge-subtitle-plugin-Edge-",
@@ -112,10 +112,22 @@
       "active": true,
       "archived": false,
       "tracking_since": "2026-11-10",
-      "days_recorded": 17,
-      "cumulative_clones": 18,
-      "sum_of_daily_uniques": 15,
-      "last_updated_utc": "2026-11-27T10:53:53.942Z"
+      "days_recorded": 18,
+      "cumulative_clones": 20,
+      "sum_of_daily_uniques": 16,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
+    },
+    {
+      "name": "chooselove",
+      "repo": "zou172866/chooselove",
+      "html_url": "https://github.com/zou172866/chooselove",
+      "active": true,
+      "archived": false,
+      "tracking_since": "2026-11-15",
+      "days_recorded": 14,
+      "cumulative_clones": 0,
+      "sum_of_daily_uniques": 0,
+      "last_updated_utc": "2026-11-28T10:29:34.014Z"
     }
   ]
 }

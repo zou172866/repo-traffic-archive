@@ -7,21 +7,22 @@
 ## 统计看板
 
 <!-- TRAFFIC_TABLE:START -->
-- **累计总克隆数（`cumulative_clones`）**：`5,757`
-- **日独立克隆人数累加值（`sum_of_daily_uniques`，仅趋势参考）**：`3,810`
-- **纳入统计仓库**：活跃公开仓 `8` 个 / 历史保留仓 `0` 个
-- **统计起始日期（UTC）**：`2026-11-10` ｜ **最近更新（UTC）**：`2026-11-27T10:53:53.942Z`
+- **累计总克隆数（`cumulative_clones`）**：`6,539`
+- **日独立克隆人数累加值（`sum_of_daily_uniques`，仅趋势参考）**：`4,320`
+- **纳入统计仓库**：活跃公开仓 `9` 个 / 历史保留仓 `0` 个
+- **统计起始日期（UTC）**：`2026-11-10` ｜ **最近更新（UTC）**：`2026-11-28T10:29:34.014Z`
 
 | 仓库 | 状态 | 起始日期 (UTC) | 累计克隆数 | 日独立克隆累加* | 单仓徽章 |
 | --- | --- | :---: | ---: | ---: | :---: |
-| [Antigravity-agy-dart](https://github.com/zou172866/Antigravity-agy-dart) | Active | 2026-11-10 | 3,433 | 2,308 | ![Antigravity-agy-dart clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/Antigravity-agy-dart.json) |
-| [Antigravity-agy-cmd](https://github.com/zou172866/Antigravity-agy-cmd) | Active | 2026-11-10 | 1,486 | 1,053 | ![Antigravity-agy-cmd clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/Antigravity-agy-cmd.json) |
-| [xiaozhi-windows-pc-mcp](https://github.com/zou172866/xiaozhi-windows-pc-mcp) | Active | 2026-11-10 | 380 | 173 | ![xiaozhi-windows-pc-mcp clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/xiaozhi-windows-pc-mcp.json) |
-| [agy-ignore](https://github.com/zou172866/agy-ignore) | Active | 2026-11-12 | 129 | 77 | ![agy-ignore clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/agy-ignore.json) |
-| [Antigravity-agy-human](https://github.com/zou172866/Antigravity-agy-human) | Active | 2026-11-11 | 126 | 68 | ![Antigravity-agy-human clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/Antigravity-agy-human.json) |
-| [svg-voiced-video-studio](https://github.com/zou172866/svg-voiced-video-studio) | Active | 2026-11-10 | 98 | 63 | ![svg-voiced-video-studio clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/svg-voiced-video-studio.json) |
-| [agy-xiaozhi-notifier](https://github.com/zou172866/agy-xiaozhi-notifier) | Active | 2026-11-10 | 87 | 53 | ![agy-xiaozhi-notifier clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/agy-xiaozhi-notifier.json) |
-| [-edge-subtitle-plugin-Edge-](https://github.com/zou172866/-edge-subtitle-plugin-Edge-) | Active | 2026-11-10 | 18 | 15 | ![-edge-subtitle-plugin-Edge- clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/-edge-subtitle-plugin-Edge-.json) |
+| [Antigravity-agy-dart](https://github.com/zou172866/Antigravity-agy-dart) | Active | 2026-11-10 | 3,934 | 2,669 | ![Antigravity-agy-dart clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/Antigravity-agy-dart.json) |
+| [Antigravity-agy-cmd](https://github.com/zou172866/Antigravity-agy-cmd) | Active | 2026-11-10 | 1,682 | 1,156 | ![Antigravity-agy-cmd clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/Antigravity-agy-cmd.json) |
+| [xiaozhi-windows-pc-mcp](https://github.com/zou172866/xiaozhi-windows-pc-mcp) | Active | 2026-11-10 | 410 | 188 | ![xiaozhi-windows-pc-mcp clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/xiaozhi-windows-pc-mcp.json) |
+| [agy-ignore](https://github.com/zou172866/agy-ignore) | Active | 2026-11-12 | 170 | 100 | ![agy-ignore clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/agy-ignore.json) |
+| [Antigravity-agy-human](https://github.com/zou172866/Antigravity-agy-human) | Active | 2026-11-11 | 131 | 71 | ![Antigravity-agy-human clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/Antigravity-agy-human.json) |
+| [svg-voiced-video-studio](https://github.com/zou172866/svg-voiced-video-studio) | Active | 2026-11-10 | 102 | 65 | ![svg-voiced-video-studio clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/svg-voiced-video-studio.json) |
+| [agy-xiaozhi-notifier](https://github.com/zou172866/agy-xiaozhi-notifier) | Active | 2026-11-10 | 90 | 55 | ![agy-xiaozhi-notifier clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/agy-xiaozhi-notifier.json) |
+| [-edge-subtitle-plugin-Edge-](https://github.com/zou172866/-edge-subtitle-plugin-Edge-) | Active | 2026-11-10 | 20 | 16 | ![-edge-subtitle-plugin-Edge- clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/-edge-subtitle-plugin-Edge-.json) |
+| [chooselove](https://github.com/zou172866/chooselove) | Active | 2026-11-15 | 0 | 0 | ![chooselove clones](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zou172866/repo-traffic-archive/main/badges/chooselove.json) |
 
 > \* `sum_of_daily_uniques` 为各 UTC 自然日 `uniques` 之和，不可解释为跨日去重后的历史总人数；权威累积总数请以 `cumulative_clones` 为准。
 <!-- TRAFFIC_TABLE:END -->
